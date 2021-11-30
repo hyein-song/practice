@@ -18,9 +18,7 @@ public class BoardService {
 
     @Transactional(readOnly = true)
     public Page<Board> 글목록(Pageable pageable){
-        System.out.println("글목록 함수 호출");
         return boardRepository.findAll(pageable);
     }
-
 
 }

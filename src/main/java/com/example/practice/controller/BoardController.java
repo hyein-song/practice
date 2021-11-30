@@ -17,9 +17,7 @@ public class BoardController {
 
     @GetMapping({"","/"})
     public String index(Model model, @PageableDefault(size = 3,sort = "id",direction = Sort.Direction.DESC) Pageable pageable){
-        System.out.println("index controller 호출");
         model.addAttribute("boards", boardService.글목록(pageable));
-        System.out.println("index controller 호출 완료");
         return "index";
     }
 }

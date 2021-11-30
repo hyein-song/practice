@@ -2,7 +2,6 @@ package com.example.practice.config.auth;
 
 import com.example.practice.model.User;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
