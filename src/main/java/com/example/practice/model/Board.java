@@ -26,7 +26,7 @@ public class Board {
     private String title;
 
     @Lob
-    private Long content;
+    private String content;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userId")
