@@ -28,7 +28,7 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
       use-new-id-generator-mappings: false
-    show-sql: true
+    show-sql: false
     properties:
       hibernate.format_sql: true
 
@@ -36,5 +36,5 @@ spring:
     serialization:
       fail-on-empty-beans: false
 
-practive:
+practice:
   key: p1234

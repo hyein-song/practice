@@ -41,6 +41,12 @@ public class UserService {
         }
 
     }
-    
+
+    public User 회원찾기(String username){
+        User user = userRepository.findByUsername(username).orElseGet(()->{
+            return new User();
+        });
+        return user;
+    }
 
 }
