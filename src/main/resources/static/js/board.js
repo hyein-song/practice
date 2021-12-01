@@ -2,13 +2,16 @@ let index = {
     init: function () {
         $("#btn-save").on("click", () => {
             this.save();
-        })
+        });
         $("#btn-update").on("click", () => {
             this.boardUpdate();
-        })
+        });
         $("#btn-delete").on("click", () => {
             this.delete();
-        })
+        });
+        $("#btn-reply-save").on("click", () => {
+            this.replySave();
+        });
 
     },
 
@@ -64,7 +67,40 @@ let index = {
         }).fail(function (error){
             alert(JSON.stringify(error));
         });
-    }
+    },
+
+    replySave: function (){
+        let data={
+            userId: $("#userId").val(),
+            boardId: $("#boardId").val(),
+            content: $("#content").val()
+        }
+        $.ajax({
+            type: "POST",
+            url: `/api/board/${data.boardId}/reply`,
+            data: JSON.stringify(data),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json"
+        }).done(function (resp){
+            alert("댓글 등록이 완료되었습니다.");
+            location.href="/";
+        }).fail(function (error){
+           alert(JSON.stringify(error))
+        });
+    },
+    replyDelete: function (boardId,replyId){
+        $.ajax({
+            type:"DELETE",
+            url: `/api/board/${boardId}/reply/${replyId}`,
+            dataType : "json"
+        }).done(function (resp){
+            alert("댓글 삭제가 완료 되었습니다.");
+            location.href="/";
+        }).fail(function (error){
+            alert(JSON.stringify(error));
+        });
+    },
+
 
 }
 

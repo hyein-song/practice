@@ -1,6 +1,7 @@
 package com.example.practice.service;
 
 import com.example.practice.config.auth.PrincipalDetail;
+import com.example.practice.dto.ReplySaveRequestDto;
 import com.example.practice.model.Board;
 import com.example.practice.model.User;
 import com.example.practice.repository.BoardRepository;
@@ -53,6 +54,16 @@ public class BoardService {
     @Transactional
     public void 글삭제하기(int id){
         boardRepository.deleteById(id);
+    }
+
+    @Transactional
+    public void 댓글등록(ReplySaveRequestDto replySaveRequestDto){
+        replyRepository.mSave(replySaveRequestDto.getUserId(),replySaveRequestDto.getBoardId(),replySaveRequestDto.getContent());
+    }
+
+    @Transactional
+    public void 댓글삭제(int replyId){
+        replyRepository.deleteById(replyId);
     }
 
 }
