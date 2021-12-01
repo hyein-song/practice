@@ -6,6 +6,9 @@ let index = {
         $("#btn-update").on("click", () => {
             this.boardUpdate();
         })
+        $("#btn-delete").on("click", () => {
+            this.delete();
+        })
 
     },
 
@@ -43,6 +46,20 @@ let index = {
             dataType : "json"
         }).done(function (resp){
             alert("글 수정이 완료 되었습니다.");
+            location.href="/";
+        }).fail(function (error){
+            alert(JSON.stringify(error));
+        });
+    },
+    delete: function (){
+        let id = $("#id").text()
+
+        $.ajax({
+            type:"DELETE",
+            url: "/api/board/"+id,
+            dataType : "json"
+        }).done(function (resp){
+            alert("글 삭제가 완료 되었습니다.");
             location.href="/";
         }).fail(function (error){
             alert(JSON.stringify(error));

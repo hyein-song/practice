@@ -50,4 +50,9 @@ public class BoardService {
         board1.setContent(board.getContent());
     }
 
+    @Transactional
+    public void 글삭제하기(int id){
+        boardRepository.deleteById(id);
+    }
+
 }

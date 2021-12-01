@@ -28,4 +28,10 @@ public class BoardApiController {
         boardService.글수정하기(id,board);
         return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
     }
+
+    @DeleteMapping("api/board/{id}")
+    public ResponseDto<Integer> delete(@PathVariable int id){
+        boardService.글삭제하기(id);
+        return new ResponseDto<Integer>(HttpStatus.OK.value(), 1);
+    }
 }
