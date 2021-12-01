@@ -37,4 +37,6 @@ public class User {
     @CreationTimestamp
     private Timestamp timestamp;
 
+    private String oauth;
+
 }

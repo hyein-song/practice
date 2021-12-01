@@ -40,4 +40,6 @@ public class Board {
     @CreationTimestamp
     private Timestamp timestamp;
 
+    private int count;
+
 }
